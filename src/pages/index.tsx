@@ -1,13 +1,25 @@
-const add = (x: number, y: number): number => {
-  return x + y;
-};
+import Link from "next/link";
 
-const Index = () => {
+import AsyncHello from "../features/AsyncHello";
+import { fetchHelloThunk } from "../features/asyncHelloSlice";
+import * as I from "../services/types";
+
+const Index = ({ payload }: { payload: I.AsyncHello }) => {
+  const { greeting } = payload;
+
   return (
     <div>
-      <p>Hello Next.js {add(4, 5)}</p>
+      <AsyncHello greeting={greeting} />
+      <Link href="/test">
+        <a>go to test</a>
+      </Link>
     </div>
   );
+};
+
+Index.getInitialProps = async ({ store }) => {
+  const greeting = await store.dispatch(fetchHelloThunk());
+  return greeting;
 };
 
 export default Index;
