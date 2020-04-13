@@ -1,9 +1,11 @@
 import { combineReducers } from "@reduxjs/toolkit";
 
 import hello from "../features/helloSlice";
+import asyncHello from "../features/asyncHelloSlice";
 
 const rootReducer = combineReducers({
-  hello
+  hello,
+  asyncHello,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
