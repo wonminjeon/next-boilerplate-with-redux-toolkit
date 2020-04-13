@@ -1,3 +1,5 @@
+import Test from "../components/test";
+
 const add = (x: number, y: number): number => {
   return x + y;
 };
@@ -5,7 +7,9 @@ const add = (x: number, y: number): number => {
 const Index = () => {
   return (
     <div>
-      <p>Hello Next.js {add(4, 5)}</p>
+      <p>
+        <span className="text-white">Hello Next.js</span> <Test version={add(4, 5)} />
+      </p>
     </div>
   );
 };

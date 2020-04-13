@@ -7,6 +7,8 @@ import withRedux from "next-redux-wrapper";
 import makeStore from "../redux/store";
 import { RootState } from "../redux/rootReducer";
 
+import "./styles/common.css";
+
 class MyApp extends App<{ store: Store<RootState> }> {
   static async getInitialProps({ Component, ctx }: AppContext) {
     const pageProps = Component.getInitialProps ? await Component.getInitialProps(ctx) : {};
