@@ -7,6 +7,9 @@ import withRedux from "next-redux-wrapper";
 import makeStore from "../redux/store";
 import { RootState } from "../redux/rootReducer";
 
+import Head from "../components/common/Head";
+import Layout from "../components/common/Layout";
+
 import "./styles/common.css";
 
 class MyApp extends App<{ store: Store<RootState> }> {
@@ -21,7 +24,10 @@ class MyApp extends App<{ store: Store<RootState> }> {
 
     return (
       <Provider store={store}>
-        <Component {...pageProps} />
+        <Head />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </Provider>
     );
   }
